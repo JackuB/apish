@@ -1,6 +1,5 @@
-![Build Status](https://img.shields.io/travis/JackuB/nockmock.svg)
-![Coveralls Status](https://img.shields.io/coveralls/JackuB/nockmock.svg)
-
+[![Build Status](https://img.shields.io/travis/JackuB/nockmock.svg)](https://travis-ci.org/JackuB/nockmock/)
+[![Coveralls Status](https://img.shields.io/coveralls/JackuB/nockmock.svg)](https://coveralls.io/github/JackuB/nockmock?branch=master)
 ![nockmock - Mock APIs and Services in tests](https://cloud.githubusercontent.com/assets/1788727/12077109/7b16f488-b1d0-11e5-99ce-178a3ae81ae8.png)
 
 Describe any API or Service you need mocked for tests.
