@@ -1,3 +1,5 @@
+import sinon from 'sinon'; // coverage runner fix
+import { expect } from 'chai'; // coverage runner fix
 import nockmock from '../src/nockmock.js';
 
 describe('nockmock initialization with invalid API description', () => {
