@@ -10,6 +10,10 @@ nock.enableNetConnect('apiblueprint.org');
 
 const init = (blueprint='', options={}) => {
   return new Promise((resolve, reject) => {
+    if (typeof blueprint !== 'string') {
+      return reject(new Error(`API description must be a string. I got '${typeof blueprint}'`));
+    }
+
     const contentType = deckardcain.identify(blueprint);
     if (!contentType) {
       return reject(new Error('Unknown or unsupported content-type'));

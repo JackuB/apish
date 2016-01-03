@@ -5,12 +5,12 @@ var plugins = minimize
   : [];
 
 module.exports = {
-  entry: './src/mockplease.js',
+  entry: './src/nockmock.js',
   output: {
     path: './dist',
-    filename: minimize ? 'mockplease.min.js' : 'mockplease.js',
+    filename: minimize ? 'nockmock.min.js' : 'nockmock.js',
     libraryTarget: 'umd',
-    library: 'mockplease'
+    library: 'nockmock'
   },
   module: {
     loaders: [{
