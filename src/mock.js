@@ -17,7 +17,7 @@ const mock = (response='', options) => {
     try {
       refract = JSON.parse(response);
     } catch (error) {
-      return reject(new Error('Failed to JSON.parse refract object'));
+      return reject(new Error('Failed to JSON.parse refract object from parsing service'));
     }
 
     if (refract.element !== 'parseResult') {
