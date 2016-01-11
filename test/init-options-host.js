@@ -1,4 +1,4 @@
-import { expect } from 'chai'; // coverage runner fix
+import { expect } from 'chai';
 import fs from 'fs';
 import nock from 'nock';
 import nockmock from '../src/nockmock.js';
