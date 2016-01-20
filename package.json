@@ -1,8 +1,8 @@
 {
-  "name": "nockmock",
+  "name": "apish",
   "version": "0.5.0",
   "description": "",
-  "main": "dist/nockmock.js",
+  "main": "dist/apish.js",
   "scripts": {
     "precommit": "npm test && npm run build",
     "build": "rimraf dist && webpack --no-minimize && webpack",
@@ -12,7 +12,7 @@
     "test-server": "mocha  --recursive --timeout 10000 --compilers js:babel-core/register --bail --require mocha.config.js",
     "tdd": "npm run test-server -- --watch"
   },
-  "repository": "JackuB/nockmock",
+  "repository": "JackuB/apish",
   "keywords": [
     "api",
     "mock",

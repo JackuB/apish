@@ -1,12 +1,12 @@
 import fs from 'fs';
 import hippie from 'hippie';
-import nockmock from '../src/nockmock.js';
+import apish from '../src/apish.js';
 
 describe('Mock basic APIB', () => {
   let mockResult = {};
   before(() => {
     const apib = fs.readFileSync(__dirname + '/fixtures/basic-blueprint.apib');
-    return mockResult = nockmock(apib.toString());
+    return mockResult = apish(apib.toString());
   });
 
   after(() => {

@@ -1,15 +1,15 @@
 import sinon from 'sinon'; // coverage runner fix
 import { expect } from 'chai'; // coverage runner fix
-import nockmock from '../src/nockmock.js';
+import apish from '../src/apish.js';
 
-describe('nockmock initialization with invalid API description', () => {
-  describe('initialize nockmock with undefined', () => {
+describe('apish initialization with invalid API description', () => {
+  describe('initialize apish with undefined', () => {
     let mockResultError = {};
     let thenCallbackSpy = {};
 
     before((done) => {
       thenCallbackSpy = sinon.spy();
-      nockmock()
+      apish()
         .then(thenCallbackSpy)
         .catch((error) => {
           mockResultError = error;
@@ -30,13 +30,13 @@ describe('nockmock initialization with invalid API description', () => {
     });
   });
 
-  describe('initialize nockmock with JSON', () => {
+  describe('initialize apish with JSON', () => {
     let mockResultError = {};
     let thenCallbackSpy = {};
 
     before((done) => {
       thenCallbackSpy = sinon.spy();
-      nockmock({ content: 'Definitely not API description.' })
+      apish({ content: 'Definitely not API description.' })
         .then(thenCallbackSpy)
         .catch((error) => {
           mockResultError = error;
@@ -57,13 +57,13 @@ describe('nockmock initialization with invalid API description', () => {
     });
   });
 
-  describe('initialize nockmock with unrecognized string', () => {
+  describe('initialize apish with unrecognized string', () => {
     let mockResultError = {};
     let thenCallbackSpy = {};
 
     before((done) => {
       thenCallbackSpy = sinon.spy();
-      nockmock('Definitely not API description.')
+      apish('Definitely not API description.')
         .then(thenCallbackSpy)
         .catch((error) => {
           mockResultError = error;
