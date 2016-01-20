@@ -1,7 +1,7 @@
 {
   "name": "apish",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mock APIs and Services from API Blueprint or Swagger",
   "main": "dist/apish.js",
   "scripts": {
     "precommit": "npm test && npm run build",
@@ -27,6 +27,16 @@
     "dist",
     "src"
   ],
+  "author": {
+    "name": "Jakub Mikulas",
+    "email": "jakub@mikul.as"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">=2.13.0"
+  },
+  "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
     "babel": "^5.8.3",
     "babel-core": "^5.8.3",
@@ -44,17 +54,7 @@
     "rimraf": "^2.4.3",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
-    "webpack": "^1.12.2"
-  },
-  "author": {
-    "name": "Jakub Mikulas",
-    "email": "jakub@mikul.as"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "license": "MIT",
-  "dependencies": {
+    "webpack": "^1.12.2",
     "bluebird": "^3.1.1",
     "deckardcain": "^0.3.2",
     "lodash": "^3.10.1",
