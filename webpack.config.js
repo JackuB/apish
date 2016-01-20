@@ -1,5 +1,3 @@
-var webpack = require('webpack');
-
 module.exports = {
   entry: './src/apish.js',
   output: {
@@ -9,10 +7,18 @@ module.exports = {
     library: 'apish'
   },
   module: {
+    preLoaders: [
+        { test: /\.json$/, loader: 'json' },
+    ],
     loaders: [{
       test: /\.js?$/,
       exclude: /(node_modules|bower_components)/,
       loader: 'babel'
     }]
+  },
+  node: {
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   }
 };
