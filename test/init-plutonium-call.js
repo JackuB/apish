@@ -2,7 +2,7 @@ import sinon from 'sinon';
 import { expect } from 'chai';
 import fs from 'fs';
 import nock from 'nock';
-import nockmock from '../src/nockmock.js';
+import apish from '../src/apish.js';
 
 const parserService = 'https://api.apiblueprint.org';
 
@@ -28,7 +28,7 @@ describe('plutonium call fails', () => {
         .reply(503);
 
       thenCallbackSpy = sinon.spy();
-      nockmock(apib)
+      apish(apib)
         .then(thenCallbackSpy)
         .catch((error) => {
           mockResultError = error;
@@ -60,7 +60,7 @@ describe('plutonium call fails', () => {
         .reply(503, serverErrorMessage);
 
       thenCallbackSpy = sinon.spy();
-      nockmock(apib)
+      apish(apib)
         .then(thenCallbackSpy)
         .catch((error) => {
           mockResultError = error;
@@ -92,7 +92,7 @@ describe('plutonium call fails', () => {
         .reply(200, serverMessage);
 
       thenCallbackSpy = sinon.spy();
-      nockmock(apib)
+      apish(apib)
         .then(thenCallbackSpy)
         .catch((error) => {
           mockResultError = error;
@@ -124,7 +124,7 @@ describe('plutonium call fails', () => {
         .reply(200, serverMessage);
 
       thenCallbackSpy = sinon.spy();
-      nockmock(apib)
+      apish(apib)
         .then(thenCallbackSpy)
         .catch((error) => {
           mockResultError = error;
@@ -157,7 +157,7 @@ describe('plutonium call fails', () => {
         .reply(200, serverMessage);
 
       thenCallbackSpy = sinon.spy();
-      nockmock(apib)
+      apish(apib)
         .then(thenCallbackSpy)
         .catch((error) => {
           mockResultError = error;
@@ -189,7 +189,7 @@ describe('plutonium call fails', () => {
         .reply(200, serverMessage);
 
       thenCallbackSpy = sinon.spy();
-      nockmock(apib)
+      apish(apib)
         .then(thenCallbackSpy)
         .catch((error) => {
           mockResultError = error;
@@ -221,7 +221,7 @@ describe('plutonium call fails', () => {
         .reply(200, serverMessage);
 
       thenCallbackSpy = sinon.spy();
-      nockmock(apib)
+      apish(apib)
         .then(thenCallbackSpy)
         .catch((error) => {
           mockResultError = error;

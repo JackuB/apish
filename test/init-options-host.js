@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 import fs from 'fs';
 import nock from 'nock';
-import nockmock from '../src/nockmock.js';
+import apish from '../src/apish.js';
 
-describe('nockmock with specified host option', () => {
+describe('apish with specified host option', () => {
   let mockResult = {};
   const actionsInBasicBlueprint = 2;
 
@@ -12,7 +12,7 @@ describe('nockmock with specified host option', () => {
     const options = {
       host: 'http://newhost.com'
     };
-    return mockResult = nockmock(apib.toString(), options);
+    return mockResult = apish(apib.toString(), options);
   });
 
   it('should initialize without error', () => {

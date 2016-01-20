@@ -1,21 +1,21 @@
-[![Build Status](https://img.shields.io/travis/JackuB/nockmock.svg)](https://travis-ci.org/JackuB/nockmock/)
-[![Coveralls Status](https://img.shields.io/coveralls/JackuB/nockmock.svg)](https://coveralls.io/github/JackuB/nockmock?branch=master)
-![nockmock - Mock APIs and Services in tests](https://cloud.githubusercontent.com/assets/1788727/12077109/7b16f488-b1d0-11e5-99ce-178a3ae81ae8.png)
+[![Build Status](https://img.shields.io/travis/JackuB/apish.svg)](https://travis-ci.org/JackuB/apish/)
+[![Coveralls Status](https://img.shields.io/coveralls/JackuB/apish.svg)](https://coveralls.io/github/JackuB/apish?branch=master)
+![apish - Mock APIs and Services](readme.png)
 
-Describe any API or Service you need mocked for tests.
-Supports [API Blueprint](http://apiblueprint.org) and [Swagger](http://swagger.io) API description formats.
+Describe any API or Service you need mocked.
+Supports [API Blueprint](http://apiblueprint.org) and [Swagger](http://swagger.io) API Description formats.
 
 ### Use cases
 #### 3rd party APIs
 
 - Your app is calling GitHub API, weather API, Trello API, …
-- Describe endpoints in API description format like [API Blueprint](http://apiblueprint.org) 
-(or ask API provider for API description)
-- Add it as a test fixture and let nockmock create mock for you:
+- Describe endpoints in API Description format like [API Blueprint](http://apiblueprint.org) 
+(or ask API provider for API Description)
+- Add it as a test fixture and let apish create mock for you:
 
 ```js
 before(() => {
-  return nockmock(fs.readFileSync('github-api.apib').toString());
+  return apish(fs.readFileSync('github-api.apib').toString());
 });
 
 // Run your tests with mocked requests against GitHub API
@@ -24,9 +24,9 @@ before(() => {
 
 #### (Micro)services
 
-- Have all your services publish API description onto (private) npm. Use [semver](http://semver.org) to version it
+- Have all your services publish API Description onto (private) npm. Use [semver](http://semver.org) to version it
 and tools like [Dredd](https://github.com/apiaryio/dredd) to test its implementation
-- When you depend on another service, just require its package with API description and run tests against its mocks, 
+- When you depend on another service, just require its package with API Description and run tests against its mocks, 
 that are always in sync with implementation
 - You can always compare version you've tested against to what is currently running in your environment
 
@@ -34,7 +34,7 @@ that are always in sync with implementation
 import myOtherService from 'myOtherService';
 
 before(() => {
-  return myOtherService = nockmock(myOtherService);
+  return myOtherService = apish(myOtherService);
 });
 
 // Run your tests…
@@ -43,21 +43,21 @@ before(() => {
 ## Installation
 
 ```
-$ npm i nockmock --save-dev
+$ npm i apish --save-dev
 ```
 
 ## Usage
 ```js
-import nockmock from 'nockmock';
+import apish from 'apish';
 
 // or
-var nockmock = require('nockmock');
+var apish = require('apish');
 
 // In your test runner
 let mockResult = {};
 before(() => {
   const apib = fs.readFileSync('github-api.apib').toString();
-  return mockResult = nockmock(apib); // nockmock returns Promise
+  return mockResult = apish(apib); // apish returns Promise
 });
 
 // Cleanup
@@ -70,10 +70,10 @@ after(() => {
 ### Arguments
 
 ```js
-let mockedapi = nockmock(apiDescription, options);
+let mockedapi = apish(apiDescription, options);
 ```
 
-- `apiDescription` (string) - [API Blueprint](http://apiblueprint.org) or [Swagger](http://swagger.io) API description
+- `apiDescription` (string) - [API Blueprint](http://apiblueprint.org) or [Swagger](http://swagger.io) API Description
 - `options` (OPTIONAL, object)
   - `host` (string) - overwrite specified host (base URL) that should be used
   

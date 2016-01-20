@@ -5,12 +5,12 @@ var plugins = minimize
   : [];
 
 module.exports = {
-  entry: './src/nockmock.js',
+  entry: './src/apish.js',
   output: {
     path: './dist',
-    filename: minimize ? 'nockmock.min.js' : 'nockmock.js',
+    filename: minimize ? 'apish.min.js' : 'apish.js',
     libraryTarget: 'umd',
-    library: 'nockmock'
+    library: 'apish'
   },
   module: {
     loaders: [{
