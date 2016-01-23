@@ -39,7 +39,11 @@ const init = (blueprint='', options={}) => {
       }
 
       if (!response.body || !response.body.output_document) {
-        return reject(new Error(`Parsing service responded with invalid data: ${response.body}`));
+        try {
+          return reject(new Error(`Parsing service responded with invalid data: ${JSON.stringify(response.body)}`));
+        } catch (e) {
+          return reject(new Error(`Parsing service responded with invalid data: ${response.body}`));
+        }
       }
 
       return resolve(mock(response.body.output_document, options));

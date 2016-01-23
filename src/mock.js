@@ -7,6 +7,7 @@ import apiDescription from 'lodash-api-description';
 import extractHost from './helpers/extract-host';
 import extractBody from './helpers/extract-body';
 import extractHeaders from './helpers/extract-headers';
+import extractNextResponse from './helpers/extract-next-response';
 import mockRoute from './helpers/create-mock';
 
 apiDescription(_); // Extend lodash
@@ -54,8 +55,8 @@ const mock = (response='', options) => {
                   return;
                 }
 
-                const nextElement = transactions[index + 1];
-                if (!nextElement || nextElement.element !== 'httpResponse') {
+                const nextElement = extractNextResponse(transactions, index);
+                if (!nextElement) {
                   return;
                 }
 
