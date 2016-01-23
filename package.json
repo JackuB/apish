@@ -8,7 +8,7 @@
     "prepublish": "npm test && npm run build",
     "build": "rimraf dist && babel src --out-dir dist",
     "coverage": "babel-node node_modules/isparta/bin/isparta cover node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
-    "coveralls": "npm run coverage && coveralls < coverage/lcov.info && rimraf coverage",
+    "coveralls": "npm run coverage && coveralls < coverage/lcov.info && codeclimate-test-reporter < coverage/lcov.info && rimraf coverage",
     "test": "npm run test-server",
     "test-server": "mocha --recursive --timeout 10000 --compilers js:babel-core/register --bail --require mocha.config.js",
     "tdd": "npm run test-server -- --watch"
@@ -51,6 +51,7 @@
     "babel-eslint": "^4.1.4",
     "babel-loader": "^5.3.3",
     "chai": "^3.2.0",
+    "codeclimate-test-reporter": "^0.3.0",
     "coveralls": "^2.11.4",
     "eslint": "^1.4.1",
     "eslint-plugin-babel": "^2.1.1",
