@@ -16,9 +16,5 @@ module.exports = {
       loader: 'babel'
     }]
   },
-  node: {
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty'
-  }
+  target: 'node'
 };
