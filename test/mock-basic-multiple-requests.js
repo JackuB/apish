@@ -2,6 +2,7 @@ import fs from 'fs';
 import nock from 'nock';
 import hippie from 'hippie';
 import apish from '../src/apish.js';
+import { expect } from 'chai'; // coverage runner fix
 
 describe('Mock basic APIB with multiple requests and 1 response', () => {
   let mockResult = {};
