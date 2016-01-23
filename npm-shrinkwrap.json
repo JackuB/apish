@@ -1,6 +1,6 @@
 {
   "name": "apish",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "dependencies": {
     "abbrev": {
       "version": "1.0.7",
