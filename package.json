@@ -1,6 +1,6 @@
 {
   "name": "apish",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Mock APIs and Services from API Blueprint or Swagger",
   "main": "dist/apish.js",
   "scripts": {
