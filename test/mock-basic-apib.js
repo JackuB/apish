@@ -34,5 +34,4 @@ describe('Mock basic APIB', () => {
     .expectBody({"question":"Favourite programming language?","choices":[{"choice":"Swift","votes":2048},{"choice":"Python","votes":1024}]})
     .end(done);
   });
-
 });

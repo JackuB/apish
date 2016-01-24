@@ -49,7 +49,7 @@ describe('Mock basic APIB with multiple requests and 1 response', () => {
       .expectStatus(200)
       .expectHeader('Content-Type', 'application/json')
       .expectBody({"question":"Favourite programming language?","choices":[{"choice":"Swift","votes":2048},{"choice":"Python","votes":1024}]})
-      .end((err, res, body) => {
+      .end((err) => {
         expect(err).to.exist;
         expect(err).to.be.an.instanceOf(Error);
         done();

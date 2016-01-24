@@ -213,10 +213,13 @@ describe('plutonium call fails', () => {
   describe('with 200 page and JSON body but "output_document" is not "parseResult" refract element', () => {
     let mockResultError = {};
     let thenCallbackSpy = {};
-    const serverMessage = { output_document: { element: 'notParseResult' } };
+    const serverMessage = { output_document: { element: "notParseResult" } };
 
     before((done) => {
       nock(parserService)
+        .defaultReplyHeaders({
+          'Content-Type': 'application/json'
+        })
         .post('/transform', (() => true))
         .reply(200, serverMessage);
 
@@ -238,7 +241,39 @@ describe('plutonium call fails', () => {
     });
 
     it('should provide correct error message including page body', () => {
-      expect(mockResultError.message).to.equal('Failed to JSON.parse refract object from parsing service');
+      expect(mockResultError.message).to.equal('Expected refract object');
+    });
+  });
+
+  describe('with error', () => {
+    let mockResultError = {};
+    let thenCallbackSpy = {};
+    const serverErrorMessage = 'Everything crashed';
+
+    before((done) => {
+      nock(parserService)
+        .post('/transform', (() => true))
+        .replyWithError(serverErrorMessage);
+
+      thenCallbackSpy = sinon.spy();
+      apish(apib)
+        .then(thenCallbackSpy)
+        .catch((error) => {
+          mockResultError = error;
+          done();
+        });
+    });
+
+    it('should not call .then()', () => {
+      expect(thenCallbackSpy).to.have.not.been.called;
+    });
+
+    it('should initialize with error', () => {
+      expect(mockResultError).to.exists;
+    });
+
+    it('should provide correct error message including page body', () => {
+      expect(mockResultError.message).to.equal(serverErrorMessage);
     });
   });
 });

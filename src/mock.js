@@ -14,11 +14,14 @@ apiDescription(_); // Extend lodash
 
 const mock = (response='', options) => {
   return new Promise((resolve, reject) => {
-    let refract = {};
-    try {
-      refract = JSON.parse(response);
-    } catch (error) {
-      return reject(new Error('Failed to JSON.parse refract object from parsing service'));
+    let refract = response;
+
+    if (typeof refract !== 'object') {
+      try {
+        refract = JSON.parse(response);
+      } catch (error) {
+        return reject(new Error('Failed to JSON.parse refract object from parsing service'));
+      }
     }
 
     if (refract.element !== 'parseResult') {
@@ -61,7 +64,7 @@ const mock = (response='', options) => {
                 }
 
                 const request = requestOrResponse;
-                const response = transactions[index + 1];
+                const response = nextElement;
                 const requestMethod = request.attributes.method.toLowerCase();
                 const requestHeaders = extractHeaders(request);
                 const requestBody = extractBody(request);
