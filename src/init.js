@@ -8,13 +8,13 @@ import mock from './mock';
 const parserService = 'https://api.apiblueprint.org/transform';
 nock.enableNetConnect('apiblueprint.org');
 
-const init = (blueprint='', options={}) => {
+const init = (apiDescription='', options={}) => {
   return new Promise((resolve, reject) => {
-    if (typeof blueprint !== 'string') {
-      return reject(new Error(`API description must be a string. I got '${typeof blueprint}'`));
+    if (typeof apiDescription !== 'string') {
+      return reject(new Error(`API description must be a string. I got '${typeof apiDescription}'`));
     }
 
-    const contentType = deckardcain.identify(blueprint);
+    const contentType = deckardcain.identify(apiDescription);
     if (!contentType) {
       return reject(new Error('Unknown or unsupported content-type'));
     }
@@ -25,7 +25,7 @@ const init = (blueprint='', options={}) => {
       'json': true,
       'body': {
         'input_type': contentType,
-        'input_document': blueprint,
+        'input_document': apiDescription,
         'output_type': 'application/vnd.refract.parse-result',
         'options': {
           'source_map': false

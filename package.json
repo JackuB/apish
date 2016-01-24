@@ -4,8 +4,8 @@
   "description": "Mock APIs and Services from API Blueprint or Swagger",
   "main": "dist/apish.js",
   "scripts": {
-    "precommit": "npm test && npm run build",
-    "prepublish": "npm test && npm run build",
+    "precommit": "npm test && npm run coverage && npm run build",
+    "prepublish": "npm test && npm run coverage && npm run build",
     "build": "rimraf dist && babel src --out-dir dist",
     "coverage": "babel-node node_modules/isparta/bin/isparta cover node_modules/mocha/bin/_mocha --report lcovonly -- -R spec --timeout 10000",
     "coveralls": "npm run coverage && coveralls < coverage/lcov.info && codeclimate-test-reporter < coverage/lcov.info && rimraf coverage",
