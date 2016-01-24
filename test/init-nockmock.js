@@ -1,7 +1,7 @@
-import { expect } from 'chai';
 import fs from 'fs';
 import nock from 'nock';
 import apish from '../src/apish.js';
+import { expect } from 'chai';
 
 describe('apish initialization', () => {
   let mockResult = {};

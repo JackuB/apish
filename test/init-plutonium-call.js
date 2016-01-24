@@ -1,8 +1,8 @@
-import sinon from 'sinon';
-import { expect } from 'chai';
 import fs from 'fs';
 import nock from 'nock';
 import apish from '../src/apish.js';
+import sinon from 'sinon';
+import { expect } from 'chai';
 
 const parserService = 'https://api.apiblueprint.org';
 

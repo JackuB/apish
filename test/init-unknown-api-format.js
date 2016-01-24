@@ -1,5 +1,5 @@
-import sinon from 'sinon'; // coverage runner fix
-import { expect } from 'chai'; // coverage runner fix
+import sinon from 'sinon';
+import { expect } from 'chai';
 import apish from '../src/apish.js';
 
 describe('apish initialization with invalid API description', () => {
