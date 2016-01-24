@@ -1,6 +1,8 @@
 [![Build Status](https://img.shields.io/travis/JackuB/apish.svg)](https://travis-ci.org/JackuB/apish/)
 [![Coveralls Status](https://img.shields.io/coveralls/JackuB/apish.svg)](https://coveralls.io/github/JackuB/apish?branch=master)
-[![](https://david-dm.org/username/repo.svg)](https://david-dm.org/jackub/apish)
+[![David dependencies]( https://img.shields.io/david/jackub/apish.svg)](https://david-dm.org/jackub/apish)
+[![npm downloads](https://img.shields.io/npm/dm/apish.svg)](https://www.npmjs.com/package/apish)
+
 ![apish - Mock APIs and Services](readme.png)
 
 Describe any API or Service you need mocked.
