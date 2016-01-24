@@ -1,12 +1,8 @@
-import nock from 'nock';
-import request from 'request';
-import deckardcain from 'deckardcain';
 import Promise from 'bluebird';
+import deckardcain from 'deckardcain';
 
 import mock from './mock';
-
-const parserService = 'https://api.apiblueprint.org/transform';
-nock.enableNetConnect('apiblueprint.org');
+import callParsingService from './parser/parsing-service';
 
 const init = (apiDescription='', options={}) => {
   return new Promise((resolve, reject) => {
@@ -15,35 +11,15 @@ const init = (apiDescription='', options={}) => {
     }
 
     const contentType = deckardcain.identify(apiDescription);
-    if (!contentType) {
-      return reject(new Error('Unknown or unsupported content-type'));
+
+    switch (contentType) {
+      case 'application/swagger+yaml':
+        resolve(callParsingService(apiDescription, contentType).then((refract) => mock(refract, options)));
+      case 'text/vnd.apiblueprint':
+        resolve(callParsingService(apiDescription, contentType).then((refract) => mock(refract, options)));
+      default:
+        reject(new Error('Unknown or unsupported content-type'));
     }
-
-    const requestOptions = {
-      'url': parserService,
-      'method': 'POST',
-      'json': true,
-      'body': {
-        'input_type': contentType,
-        'input_document': apiDescription,
-        'output_type': 'application/vnd.refract.parse-result',
-        'options': {
-          'source_map': false
-        }
-      },
-    };
-
-    request(requestOptions, (error, response) => {
-      if (error) {
-        return reject(error);
-      }
-
-      if (!response.body || !response.body.output_document) {
-        return reject(new Error(`Parsing service responded with invalid data: ${JSON.stringify(response.body)}`));
-      }
-
-      return resolve(mock(response.body.output_document, options));
-    });
   });
 };
 
