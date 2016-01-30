@@ -3,8 +3,9 @@ import deckardcain from 'deckardcain';
 
 import mock from './mock';
 import callParsingService from './parser/parsing-service';
+import parseBlueprint from './parser/protagonist';
 
-const init = (apiDescription='', options={}) => {
+const init = (apiDescription, options={}) => {
   return new Promise((resolve, reject) => {
     if (typeof apiDescription !== 'string') {
       return reject(new Error(`API description must be a string. I got '${typeof apiDescription}'`));
@@ -14,11 +15,11 @@ const init = (apiDescription='', options={}) => {
 
     switch (contentType) {
       case 'application/swagger+yaml':
-        resolve(callParsingService(apiDescription, contentType).then((refract) => mock(refract, options)));
+        return resolve(callParsingService(apiDescription, contentType).then((refract) => mock(refract, options)));
       case 'text/vnd.apiblueprint':
-        resolve(callParsingService(apiDescription, contentType).then((refract) => mock(refract, options)));
+        return resolve(parseBlueprint(apiDescription).then((refract) => mock(refract, options)));
       default:
-        reject(new Error('Unknown or unsupported content-type'));
+        return reject(new Error('Unknown or unsupported content-type'));
     }
   });
 };

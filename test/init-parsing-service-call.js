@@ -9,7 +9,7 @@ const parserService = 'https://api.apiblueprint.org';
 describe('plutonium call fails', () => {
   let apib = null;
   before(() => {
-    apib = fs.readFileSync(__dirname + '/fixtures/basic-blueprint.apib').toString();
+    apib = fs.readFileSync(__dirname + '/fixtures/basic-swagger.yaml').toString();
     nock.disableNetConnect('apiblueprint.org');
   });
 

@@ -1,3 +1,4 @@
+import fs from 'fs';
 import sinon from 'sinon';
 import { expect } from 'chai';
 import apish from '../src/apish.js';
@@ -26,7 +27,7 @@ describe('apish initialization with invalid API description', () => {
     });
 
     it('should provide correct error message', () => {
-      expect(mockResultError.message).to.equal('Unknown or unsupported content-type');
+      expect(mockResultError.message).to.equal('API description must be a string. I got \'undefined\'');
     });
   });
 
@@ -81,6 +82,33 @@ describe('apish initialization with invalid API description', () => {
 
     it('should provide correct error message', () => {
       expect(mockResultError.message).to.equal('Unknown or unsupported content-type');
+    });
+  });
+
+  describe('initialize apish with invalid API Blueprint', () => {
+    let mockResultError = {};
+    let thenCallbackSpy = {};
+
+    before((done) => {
+      thenCallbackSpy = sinon.spy();
+      apish(fs.readFileSync(__dirname + '/fixtures/invalid-blueprint.apib', 'utf8'))
+        .then(thenCallbackSpy)
+        .catch((error) => {
+          mockResultError = error;
+          done();
+        });
+    });
+
+    it('should not call .then()', () => {
+      expect(thenCallbackSpy).to.have.not.been.called;
+    });
+
+    it('should initialize with error', () => {
+      expect(mockResultError).to.exists;
+    });
+
+    it('should provide correct error message', () => {
+      expect(mockResultError.message).to.equal('expected API name, e.g. \'# <API Name>\'');
     });
   });
 });
