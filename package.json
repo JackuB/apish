@@ -44,6 +44,7 @@
     "lodash-api-description": "0.0.2",
     "nock": "^5.2.1",
     "protagonist": "^1.2.5",
+    "refract-message-body-generator": "^1.0.1",
     "request": "^2.67.0",
     "uri-template-lite": "^0.1.11",
     "urijs": "^1.17.0"
