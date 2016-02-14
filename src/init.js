@@ -2,7 +2,7 @@ import Promise from 'bluebird';
 import deckardcain from 'deckardcain';
 
 import mock from './mock';
-import callParsingService from './parser/parsing-service';
+import parseSwagger from './parser/swagger';
 import parseBlueprint from './parser/protagonist';
 
 const init = (apiDescription, options={}) => {
@@ -15,7 +15,7 @@ const init = (apiDescription, options={}) => {
 
     switch (contentType) {
       case 'application/swagger+yaml':
-        return resolve(callParsingService(apiDescription, contentType).then((refract) => mock(refract, options)));
+        return resolve(parseSwagger(apiDescription).then((refract) => mock(refract, options)));
       case 'text/vnd.apiblueprint':
         return resolve(parseBlueprint(apiDescription).then((refract) => mock(refract, options)));
       default:

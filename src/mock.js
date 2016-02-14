@@ -12,29 +12,19 @@ import mockRoute from './helpers/create-mock';
 
 apiDescription(_); // Extend lodash
 
-const mock = (response='', options) => {
+const mock = (refract, options) => {
   return new Promise((resolve, reject) => {
-    let refract = response;
-
-    if (typeof refract !== 'object') {
-      try {
-        refract = JSON.parse(response);
-      } catch (error) {
-        return reject(new Error('Failed to JSON.parse refract object from parsing service'));
-      }
-    }
-
-    if (refract.element !== 'parseResult') {
-      return reject(new Error('Expected refract object'));
-    }
-
     const resourceGroups = _.filter(refract.content, {
       'element': 'category'
     });
+
     const host = options.host || extractHost(resourceGroups[0].attributes.meta);
+    if (!host) {
+      return reject(new Error('No "host" specified for mock in API Description or options'));
+    }
 
     resourceGroups.forEach((resourceGroup) => {
-      // Plutonium sometimes returns categories inside resourceGroups
+      // Parsing sometimes returns categories inside resourceGroups
       const resourcesFix = [{
         element: 'category',
         meta: {},

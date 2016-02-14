@@ -1,6 +1,6 @@
 {
   "name": "apish",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "description": "Mock APIs and Services from API Blueprint or Swagger",
   "main": "dist/apish.js",
   "scripts": {
@@ -38,10 +38,13 @@
   "dependencies": {
     "bluebird": "^3.1.1",
     "deckardcain": "^0.3.2",
+    "fury": "^1.0.3",
+    "fury-adapter-swagger": "^0.7.0",
     "lodash": "^3.0.0",
     "lodash-api-description": "0.0.2",
     "nock": "^5.2.1",
     "protagonist": "^1.2.5",
+    "refract-message-body-generator": "^1.0.1",
     "request": "^2.67.0",
     "uri-template-lite": "^0.1.11",
     "urijs": "^1.17.0"
