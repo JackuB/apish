@@ -18,7 +18,7 @@ Supports [API Blueprint](http://apiblueprint.org) and [Swagger](http://swagger.i
 
 ```js
 before(() => {
-  return apish(fs.readFileSync('github-api.apib').toString());
+  return apish(fs.readFileSync('github-api.apib', 'utf8'));
 });
 
 // Run your tests with mocked requests against GitHub API
@@ -53,14 +53,11 @@ $ npm i apish --save-dev
 ```js
 import apish from 'apish';
 
-// or
-var apish = require('apish');
-
 // In your test runner
 let mockResult = {};
 before(() => {
-  const apib = fs.readFileSync('github-api.apib').toString();
-  return mockResult = apish(apib); // apish returns Promise
+  const apib = fs.readFileSync('github-api.apib', 'utf8');
+  return mockResult = apish(apib); // apish returns a Promise
 });
 
 // Cleanup
@@ -73,7 +70,7 @@ after(() => {
 ### Arguments
 
 ```js
-let mockedapi = apish(apiDescription, options);
+const mockedApi = apish(apiDescription, options);
 ```
 
 - `apiDescription` (string) - [API Blueprint](http://apiblueprint.org) or [Swagger](http://swagger.io) API Description
