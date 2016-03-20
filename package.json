@@ -59,7 +59,7 @@
     "coveralls": "^2.11.4",
     "eslint": "^1.4.1",
     "eslint-plugin-babel": "^2.1.1",
-    "hippie": "^0.4.0",
+    "hippie": "^0.5.0",
     "husky": "^0.10.1",
     "isparta": "^3.5.1",
     "json-loader": "^0.5.4",
