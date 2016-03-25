@@ -57,7 +57,7 @@
     "chai": "^3.2.0",
     "codeclimate-test-reporter": "^0.3.0",
     "coveralls": "^2.11.4",
-    "eslint": "^1.4.1",
+    "eslint": "^2.5.1",
     "eslint-plugin-babel": "^2.1.1",
     "hippie": "^0.5.0",
     "husky": "^0.10.1",
