@@ -42,7 +42,7 @@
     "fury-adapter-swagger": "^0.7.0",
     "lodash": "^3.0.0",
     "lodash-api-description": "0.0.2",
-    "nock": "^5.2.1",
+    "nock": "^7.7.2",
     "protagonist": "^1.2.5",
     "refract-message-body-generator": "^1.0.1",
     "request": "^2.67.0",
