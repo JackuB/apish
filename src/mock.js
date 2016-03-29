@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import URI from 'urijs';
 import nock from 'nock';
 import Promise from 'bluebird';
 import apiDescription from 'lodash-api-description';
@@ -14,6 +13,8 @@ apiDescription(_); // Extend lodash
 
 const mock = (refract, options) => {
   return new Promise((resolve, reject) => {
+    let mocks = [];
+
     const resourceGroups = _.filter(refract.content, {
       'element': 'category'
     });
@@ -76,7 +77,7 @@ const mock = (refract, options) => {
                   responseBody,
                   responseHeaders
                 };
-                mockRoute(nockOptions);
+                mocks.push(mockRoute(nockOptions));
               });
             });
           });
@@ -85,8 +86,8 @@ const mock = (refract, options) => {
     });
 
     const restore = () => {
-      nock.removeInterceptor({
-        hostname: new URI(host).hostname()
+      mocks.forEach((mock) => {
+        mock.interceptors.forEach((interceptor) => nock.removeInterceptor(interceptor));
       });
     };
 
