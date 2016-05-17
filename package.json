@@ -36,7 +36,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^3.1.1",
+    "bluebird": "^3.4.0",
     "deckardcain": "^0.3.2",
     "fury": "^1.0.3",
     "fury-adapter-swagger": "^0.7.0",
