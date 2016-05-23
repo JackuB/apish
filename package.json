@@ -40,7 +40,7 @@
     "deckardcain": "^0.3.2",
     "fury": "^1.0.3",
     "fury-adapter-swagger": "^0.7.0",
-    "lodash": "^3.0.0",
+    "lodash": "^4.13.1",
     "lodash-api-description": "0.0.2",
     "nock": "^8.0.0",
     "protagonist": "^1.2.5",
