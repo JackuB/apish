@@ -38,7 +38,7 @@
   "dependencies": {
     "bluebird": "^3.1.1",
     "deckardcain": "^0.3.2",
-    "fury": "^1.0.3",
+    "fury": "^2.1.0",
     "fury-adapter-swagger": "^0.7.0",
     "lodash": "^3.0.0",
     "lodash-api-description": "0.0.2",
