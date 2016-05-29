@@ -47,7 +47,7 @@
     "refract-message-body-generator": "^1.0.1",
     "request": "^2.67.0",
     "uri-template-lite": "^0.1.11",
-    "urijs": "^1.17.0"
+    "urijs": "^1.18.1"
   },
   "devDependencies": {
     "babel": "^5.8.3",
