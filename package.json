@@ -43,19 +43,19 @@
     "deckardcain": "^0.3.2",
     "fury": "^2.1.0",
     "fury-adapter-swagger": "^0.8.0-pre.16",
-    "lodash": "^3.0.0",
+    "lodash": "^4.13.1",
     "lodash-api-description": "0.0.2",
     "nock": "^8.0.0",
     "protagonist": "^1.2.5",
-    "request": "^2.67.0",
     "uri-template-lite": "^0.1.11",
     "urijs": "^1.17.0"
   },
   "devDependencies": {
-    "babel": "^5.8.3",
-    "babel-core": "^5.8.3",
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.10.4",
     "babel-eslint": "^6.0.0",
-    "babel-loader": "^5.3.3",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
     "chai": "^3.2.0",
     "codeclimate-test-reporter": "^0.3.0",
     "commitizen": "^2.8.2",
@@ -65,14 +65,16 @@
     "eslint-plugin-babel": "^3.2.0",
     "hippie": "^0.5.0",
     "husky": "^0.11.4",
-    "isparta": "^3.5.1",
+    "isparta": "^4.0.0",
     "json-loader": "^0.5.4",
     "mocha": "^2.3.3",
     "mocha-lcov-reporter": "^1.0.0",
+    "request": "^2.72.0",
     "rimraf": "^2.4.3",
     "semantic-release": "^4.3.5",
     "sinon": "^1.17.2",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "webpack": "^1.13.1"
   },
   "config": {
     "commitizen": {
