@@ -20,7 +20,6 @@ node_js:
   - 'stable'
   - v4
   - '0.12'
-  - '0.10'
 before_script:
   - npm prune
 after_success:
