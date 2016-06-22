@@ -46,7 +46,7 @@ before(() => {
 ## Installation
 
 ```
-$ npm i apish --save-dev
+$ npm i apish -D
 ```
 
 ## Usage
