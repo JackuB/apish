@@ -3,7 +3,7 @@ import deckardcain from 'deckardcain';
 
 import mock from './mock';
 import parseSwagger from './parser/swagger';
-import parseBlueprint from './parser/protagonist';
+import parseBlueprint from './parser/apib';
 
 const init = (apiDescription, options={}) => {
   return new Promise((resolve, reject) => {

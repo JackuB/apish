@@ -1,7 +1,7 @@
 import fs from 'fs';
 import sinon from 'sinon';
 import { expect } from 'chai';
-import apish from '../src/apish.js';
+import apish from '../dist/apish.js';
 
 describe('apish initialization with invalid API description', () => {
   describe('initialize apish with undefined', () => {
@@ -108,7 +108,7 @@ describe('apish initialization with invalid API description', () => {
     });
 
     it('should provide correct error message', () => {
-      expect(mockResultError.message).to.equal('expected API name, e.g. \'# <API Name>\'');
+      expect(mockResultError.result.content[0].content).to.equal('expected API name, e.g. \'# <API Name>\'');
     });
   });
 });

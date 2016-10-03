@@ -1,7 +1,7 @@
 import fs from 'fs';
 import nock from 'nock';
 import sinon from 'sinon';
-import apish from '../src/apish.js';
+import apish from '../dist/apish.js';
 import { expect } from 'chai';
 
 describe('apish with specified host option', () => {

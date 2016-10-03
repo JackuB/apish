@@ -1,6 +1,6 @@
 import fs from 'fs';
 import hippie from 'hippie';
-import apish from '../src/apish.js';
+import apish from '../dist/apish.js';
 import { expect } from 'chai';
 
 describe('Mock basic APIB and allow multiple requests to same resource', () => {
