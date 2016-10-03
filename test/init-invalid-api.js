@@ -1,7 +1,7 @@
 import fs from 'fs';
 import sinon from 'sinon';
 import { expect } from 'chai';
-import apish from '../src/apish.js';
+import apish from '../dist/apish.js';
 
 describe('apish initialization with invalid API description', () => {
   describe('initialize apish with undefined', () => {
