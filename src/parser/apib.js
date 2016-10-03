@@ -1,9 +1,9 @@
-import protagonist from 'protagonist';
+import drafter from 'drafter.js';
 import Promise from 'bluebird';
 
 const parseBlueprint = (blueprint) => {
   return new Promise((resolve, reject) => {
-    protagonist.parse(blueprint, { requireBlueprintName: true }, (error, result) => {
+    drafter.parse(blueprint, { requireBlueprintName: true }, (error, result) => {
       if (error) {
         return reject(error);
       }

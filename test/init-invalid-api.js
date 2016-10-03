@@ -108,7 +108,7 @@ describe('apish initialization with invalid API description', () => {
     });
 
     it('should provide correct error message', () => {
-      expect(mockResultError.message).to.equal('expected API name, e.g. \'# <API Name>\'');
+      expect(mockResultError.result.content[0].content).to.equal('expected API name, e.g. \'# <API Name>\'');
     });
   });
 });
