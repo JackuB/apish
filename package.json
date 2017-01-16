@@ -71,7 +71,7 @@
     "mocha-lcov-reporter": "^1.0.0",
     "request": "^2.72.0",
     "rimraf": "^2.4.3",
-    "semantic-release": "^4.3.5",
+    "semantic-release": "^6.3.2",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
     "webpack": "^1.13.1"
