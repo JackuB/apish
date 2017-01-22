@@ -11,6 +11,8 @@ Supports [API Blueprint](http://apiblueprint.org) and [Swagger](http://swagger.i
 ### Use cases
 #### 3rd party APIs
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/JackuB/apish.svg)](https://greenkeeper.io/)
+
 - Your app is calling GitHub API, weather API, Trello API, …
 - Describe endpoints in API Description format like [API Blueprint](http://apiblueprint.org) 
 (or ask API provider for API Description)
