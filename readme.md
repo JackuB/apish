@@ -1,7 +1,7 @@
 [![Build Status](https://img.shields.io/travis/JackuB/apish.svg)](https://travis-ci.org/JackuB/apish/)
 [![Coveralls Status](https://img.shields.io/coveralls/JackuB/apish.svg)](https://coveralls.io/github/JackuB/apish?branch=master)
-[![David dependencies]( https://img.shields.io/david/jackub/apish.svg)](https://david-dm.org/jackub/apish)
 [![npm downloads](https://img.shields.io/npm/dm/apish.svg)](https://www.npmjs.com/package/apish)
+[![Greenkeeper badge](https://badges.greenkeeper.io/JackuB/apish.svg)](https://greenkeeper.io/)
 
 ![apish - Mock APIs and Services](readme.png)
 
@@ -10,8 +10,6 @@ Supports [API Blueprint](http://apiblueprint.org) and [Swagger](http://swagger.i
 
 ### Use cases
 #### 3rd party APIs
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/JackuB/apish.svg)](https://greenkeeper.io/)
 
 - Your app is calling GitHub API, weather API, Trello API, …
 - Describe endpoints in API Description format like [API Blueprint](http://apiblueprint.org) 
