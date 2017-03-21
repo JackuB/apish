@@ -74,7 +74,7 @@
     "semantic-release": "^6.3.2",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
-    "webpack": "^1.13.1"
+    "webpack": "^2.3.0"
   },
   "config": {
     "commitizen": {
