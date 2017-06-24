@@ -61,7 +61,7 @@
     "commitizen": "^2.8.2",
     "coveralls": "^2.11.4",
     "cz-conventional-changelog": "^2.0.0",
-    "eslint": "^3.7.1",
+    "eslint": "^4.1.0",
     "eslint-plugin-babel": "^4.0.1",
     "hippie": "^0.5.0",
     "husky": "^0.13.0",
