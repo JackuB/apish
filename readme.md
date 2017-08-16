@@ -36,9 +36,7 @@ that are always in sync with implementation
 ```js
 import myOtherService from 'myOtherService';
 
-before(() => {
-  return myOtherService = apish(myOtherService);
-});
+before(() => apish(myOtherService));
 
 // Run your tests…
 ```
