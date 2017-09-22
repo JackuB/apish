@@ -43,7 +43,7 @@
     "deckardcain": "^0.3.2",
     "drafter.js": "^2.5.0",
     "fury": "^2.1.0",
-    "fury-adapter-swagger": "^0.9.6",
+    "fury-adapter-swagger": "^0.13.4",
     "lodash": "^4.13.1",
     "lodash-api-description": "0.0.2",
     "nock": "^9.0.6",
