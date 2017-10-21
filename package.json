@@ -46,7 +46,7 @@
     "fury-adapter-swagger": "^0.9.6",
     "lodash": "^4.13.1",
     "lodash-api-description": "0.0.2",
-    "nock": "^9.0.6",
+    "nock": "9.0.22",
     "uri-template-lite": "^0.1.11",
     "urijs": "^1.17.0"
   },
