@@ -64,7 +64,7 @@
     "eslint": "^4.4.0",
     "eslint-plugin-babel": "^4.0.1",
     "hippie": "^0.5.0",
-    "husky": "^0.13.0",
+    "husky": "^0.15.0-rc.2",
     "isparta": "^4.0.0",
     "json-loader": "^0.5.4",
     "mocha": "^4.1.0",
