@@ -62,7 +62,7 @@
     "coveralls": "^2.11.4",
     "cz-conventional-changelog": "^2.0.0",
     "eslint": "^4.18.1",
-    "eslint-plugin-babel": "^4.0.1",
+    "eslint-plugin-babel": "^5.1.0",
     "hippie": "^0.5.0",
     "husky": "^0.15.0-rc.2",
     "isparta": "^4.0.0",
