@@ -8,6 +8,7 @@ notifications:
 node_js:
   - v6
   - v8
+  - 10
 before_script:
   - npm prune
 after_success:
