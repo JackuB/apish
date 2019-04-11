@@ -13,7 +13,7 @@ apiDescription(_); // Extend lodash
 
 const mock = (refract, options) => {
   return new Promise((resolve, reject) => {
-    let mocks = [];
+    let resources = [];
 
     const resourceGroups = _.filter(refract.content, {
       'element': 'category'
@@ -77,12 +77,22 @@ const mock = (refract, options) => {
                   responseBody,
                   responseHeaders
                 };
-                mocks.push(mockRoute(nockOptions));
+
+                resources.push(nockOptions);
               });
             });
           });
         });
       });
+    });
+
+    // sort resources by URL length for proper resolving of parameters (see https://github.com/JackuB/apish/issues/165)
+    resources.sort((a, b) => (
+      b.resourceUrl.length - a.resourceUrl.length
+    ));
+
+    resources.forEach(resource => {
+    	mocks.push(mockRoute(resource));
     });
 
     const restore = () => {
