@@ -4,14 +4,15 @@
   "main": "dist/apish.js",
   "scripts": {
     "precommit": "npm test",
-    "prepublish": "npm test && npm run coverage && npm run build",
+    "prepublish": "npm run snyk-protect; npm test && npm run coverage && npm run build",
     "build": "rimraf dist && babel src --out-dir dist",
     "coverage": "babel-node node_modules/isparta/bin/isparta cover node_modules/mocha/bin/_mocha --report lcovonly -- -R spec --timeout 10000",
     "coveralls": "npm run coverage && coveralls < coverage/lcov.info && codeclimate-test-reporter < coverage/lcov.info && rimraf coverage",
     "test": "npm run build && npm run test-server",
     "test-server": "mocha --recursive --timeout 10000 --compilers js:babel-core/register --bail --require mocha.config.js",
     "tdd": "npm run test-server -- --watch",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "snyk-protect": "snyk protect"
   },
   "repository": {
     "type": "git",
@@ -48,7 +49,8 @@
     "lodash-api-description": "0.0.2",
     "nock": "^9.0.6",
     "uri-template-lite": "^0.1.11",
-    "urijs": "^1.17.0"
+    "urijs": "^1.17.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
@@ -79,5 +81,6 @@
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "snyk": true
 }
