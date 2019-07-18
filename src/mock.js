@@ -13,7 +13,7 @@ apiDescription(_); // Extend lodash
 
 const mock = (refract, options) => {
   return new Promise((resolve, reject) => {
-    let resources = [];
+    let routes = [];
 
     const resourceGroups = _.filter(refract.content, {
       'element': 'category'
@@ -78,7 +78,8 @@ const mock = (refract, options) => {
                   responseHeaders
                 };
 
-                resources.push(nockOptions);
+                // mocks.push(mockRoute(nockOptions));
+                routes.push([resourceUrl, nockOptions]);
               });
             });
           });
@@ -86,14 +87,16 @@ const mock = (refract, options) => {
       });
     });
 
-    // sort resources by URL length for proper resolving of parameters (see https://github.com/JackuB/apish/issues/165)
-    resources.sort((a, b) => (
-      b.resourceUrl.length - a.resourceUrl.length
-    ));
+    // sort mocks by URL length
+    routes.sort((a, b) => b[0].length - a[0].length);
 
-    resources.forEach(resource => {
-    	mocks.push(mockRoute(resource));
+    // collect mocks
+    const mocks = [];
+    routes.forEach(route => {
+      mocks.push(mockRoute(route[1]));
     });
+
+    console.log(mocks);
 
     const restore = () => {
       mocks.forEach((mock) => {
