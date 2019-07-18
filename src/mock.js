@@ -77,8 +77,7 @@ const mock = (refract, options) => {
                   responseBody,
                   responseHeaders
                 };
-
-                // mocks.push(mockRoute(nockOptions));
+                
                 routes.push([resourceUrl, nockOptions]);
               });
             });
@@ -95,7 +94,7 @@ const mock = (refract, options) => {
     routes.forEach(route => {
       mocks.push(mockRoute(route[1]));
     });
-    
+
     const restore = () => {
       mocks.forEach((mock) => {
         mock.interceptors.forEach((interceptor) => nock.removeInterceptor(interceptor));
