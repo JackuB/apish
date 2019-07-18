@@ -13,7 +13,7 @@ apiDescription(_); // Extend lodash
 
 const mock = (refract, options) => {
   return new Promise((resolve, reject) => {
-    let routes = [];
+    let routes = {};
 
     const resourceGroups = _.filter(refract.content, {
       'element': 'category'
@@ -77,8 +77,12 @@ const mock = (refract, options) => {
                   responseBody,
                   responseHeaders
                 };
-                
-                routes.push([resourceUrl, nockOptions]);
+
+              if(!routes.hasOwnProperty(resourceUrl)) {
+                routes[resourceUrl] = [];
+              }
+
+                routes[resourceUrl].push(nockOptions);
               });
             });
           });
@@ -86,13 +90,15 @@ const mock = (refract, options) => {
       });
     });
 
-    // sort mocks by URL length
-    routes.sort((a, b) => b[0].length - a[0].length);
+    // sort URLs by length
+    const urls = Object.keys(routes);
+    urls.sort((a, b) => b.length - a.length);
 
     // collect mocks
     const mocks = [];
-    routes.forEach(route => {
-      mocks.push(mockRoute(route[1]));
+    urls.forEach(url => {
+      const resources = routes[url];
+      resources.forEach(resource => {mocks.push(mockRoute(resource))})
     });
 
     const restore = () => {
