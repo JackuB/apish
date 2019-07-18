@@ -95,9 +95,7 @@ const mock = (refract, options) => {
     routes.forEach(route => {
       mocks.push(mockRoute(route[1]));
     });
-
-    console.log(mocks);
-
+    
     const restore = () => {
       mocks.forEach((mock) => {
         mock.interceptors.forEach((interceptor) => nock.removeInterceptor(interceptor));
