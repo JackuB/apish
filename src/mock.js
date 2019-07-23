@@ -78,9 +78,9 @@ const mock = (refract, options) => {
                   responseHeaders
                 };
 
-              if(!routes.hasOwnProperty(resourceUrl)) {
-                routes[resourceUrl] = [];
-              }
+                if(!routes.hasOwnProperty(resourceUrl)) {
+                  routes[resourceUrl] = [];
+                }
 
                 routes[resourceUrl].push(nockOptions);
               });
@@ -98,7 +98,7 @@ const mock = (refract, options) => {
     const mocks = [];
     urls.forEach(url => {
       const resources = routes[url];
-      resources.forEach(resource => {mocks.push(mockRoute(resource))})
+      resources.forEach(resource => mocks.push(mockRoute(resource)))
     });
 
     const restore = () => {
