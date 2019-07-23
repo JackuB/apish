@@ -1,0 +1,37 @@
+FORMAT: 1A
+HOST: http://example.com
+
+# API blueprint
+
+# Data Structures
+
+## User (object)
+  + id: `1` (number)
+  + username: `example` (string)
+
+## Post (object)
+  + id: `1` (number)
+  + user_id: `1` (number)
+  + text: `Post text` (string)
+
+# Group User
+
+## User details [/users/{user}/]
+
+### Get user details [GET]
+
++ Parameters
+  + user: `example` (string)
+
++ Response 200 (application/json)
+  + Attributes (User)
+
+## User posts [/users/{user}/posts/]
+
+### Get user's posts [GET]
+
++ Parameters
+  + user: `example` (string)
+
++ Response 200 (application/json)
+  + Attributes (array[Post])

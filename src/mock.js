@@ -13,7 +13,7 @@ apiDescription(_); // Extend lodash
 
 const mock = (refract, options) => {
   return new Promise((resolve, reject) => {
-    let mocks = [];
+    let routes = {};
 
     const resourceGroups = _.filter(refract.content, {
       'element': 'category'
@@ -77,12 +77,28 @@ const mock = (refract, options) => {
                   responseBody,
                   responseHeaders
                 };
-                mocks.push(mockRoute(nockOptions));
+
+                if(!routes.hasOwnProperty(resourceUrl)) {
+                  routes[resourceUrl] = [];
+                }
+
+                routes[resourceUrl].push(nockOptions);
               });
             });
           });
         });
       });
+    });
+
+    // sort URLs by length
+    const urls = Object.keys(routes);
+    urls.sort((a, b) => b.length - a.length);
+
+    // collect mocks
+    const mocks = [];
+    urls.forEach(url => {
+      const resources = routes[url];
+      resources.forEach(resource => mocks.push(mockRoute(resource)))
     });
 
     const restore = () => {
