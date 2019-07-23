@@ -1,22 +1,21 @@
-sudo: false
 language: node_js
-cache:
-  directories:
-    - node_modules
 notifications:
   email: false
 node_js:
-  - v6
   - v8
-before_script:
-  - npm prune
-after_success:
-  - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
-  - python travis_after_all.py
-  - export $(cat .to_export_back) &> /dev/null
-  - npm run semantic-release
+  - v10
+  - v12
 branches:
   except:
     - "/^v\\d+\\.\\d+\\.\\d+$/"
+jobs:
+  include:
+    - stage: release
+      node_js: v12
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - npx semantic-release
 after_script:
   - npm run coveralls
