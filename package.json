@@ -10,7 +10,7 @@
     "coverage": "babel-node node_modules/isparta/bin/isparta cover node_modules/mocha/bin/_mocha --report lcovonly -- -R spec --timeout 10000",
     "coveralls": "npm run coverage && coveralls < coverage/lcov.info && codeclimate-test-reporter < coverage/lcov.info && rimraf coverage",
     "test": "npm run build && npm run test-server",
-    "test-server": "mocha --recursive --timeout 10000 --compilers js:babel-core/register --bail --require mocha.config.js",
+    "test-server": "mocha --recursive --timeout 10000 --require @babel/register --bail --require mocha.config.js",
     "tdd": "npm run test-server -- --watch",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -47,16 +47,18 @@
     "fury-adapter-swagger": "^0.9.6",
     "lodash": "^4.13.1",
     "lodash-api-description": "0.0.2",
-    "nock": "^9.0.6",
+    "nock": "^10.0.6",
     "uri-template-lite": "^0.1.11",
     "urijs": "^1.17.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.10.1",
-    "babel-core": "^6.10.4",
-    "babel-eslint": "^8.0.3",
-    "babel-loader": "^7.1.3",
-    "babel-preset-es2015": "^6.9.0",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
     "chai": "^3.2.0",
     "codeclimate-test-reporter": "^0.4.0",
     "commitizen": "^2.8.2",
@@ -68,13 +70,13 @@
     "husky": "^0.15.0-rc.2",
     "isparta": "^4.0.0",
     "json-loader": "^0.5.4",
-    "mocha": "^5.0.0",
+    "mocha": "^6.2.0",
     "mocha-lcov-reporter": "^1.0.0",
     "request": "^2.72.0",
     "rimraf": "^2.4.3",
     "semantic-release": "^11.0.2",
-    "sinon": "^5.0.0",
-    "sinon-chai": "^2.8.0"
+    "sinon": "^4.5.0",
+    "sinon-chai": "^3.3.0"
   },
   "config": {
     "commitizen": {
