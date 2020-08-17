@@ -45,7 +45,7 @@
     "drafter.js": "^2.5.0",
     "fury": "^2.1.0",
     "fury-adapter-swagger": "^0.9.6",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "lodash-api-description": "0.0.2",
     "nock": "^10.0.6",
     "uri-template-lite": "^0.1.11",
