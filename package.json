@@ -50,7 +50,7 @@
     "nock": "^10.0.6",
     "uri-template-lite": "^0.1.11",
     "urijs": "^1.17.0",
-    "snyk": "^1.316.1"
+    "snyk": "^1.518.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
